@@ -1,34 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form';
-import Checkout from './components/Checkout';
+import ItemSelectionForm from './components/ItemSelectionForm';
+import PaymentForm from './components/PaymentForm';
+import Carousel from './components/Carousel';
 import { React, useState } from 'react';
+import { itemAmount, itemPrice } from './Constants';
 
-function App() {
+const App = () => {
+  let [totalCost, updateTotalCost] = useState(0)
 
-  // dropdownValues is the state var name, updateDropdownValues is the func to update dropdownValues
-  const [dropdownValues, updateDropdownValues] = useState(
-    [
-      {
-        "amount": 6,
-        "cost": 12
-      },
-      {
-        "amount": 12,
-        "cost": 24
-      },
-      {
-        "amount": 24,
-        "cost": 48
-      }
-    ])
+  // Methods
+  let calculateTotalCost = (e) => {
+    let calculatedCost = e * itemPrice;
+    console.log("Cost: ", calculatedCost)
+    console.log(typeof(calculatedCost))
+    updateTotalCost(calculatedCost);
+  };
+  
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Form dropdownValues={dropdownValues}/>
-      </header>
+      <Carousel />
+      <ItemSelectionForm itemAmount={itemAmount} onSelectItem={calculateTotalCost}/>
+      <PaymentForm totalAmountDue={totalCost}/>
     </div>
   );
 }

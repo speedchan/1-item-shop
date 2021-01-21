@@ -6,13 +6,11 @@ import { React, useState } from 'react';
 import { itemAmount, itemPrice } from './Constants';
 
 const App = () => {
-  let [totalCost, updateTotalCost] = useState(0)
+  let [totalCost, updateTotalCost] = useState(12)
 
   // Methods
   let calculateTotalCost = (e) => {
     let calculatedCost = e * itemPrice;
-    console.log("Cost: ", calculatedCost)
-    console.log(typeof(calculatedCost))
     updateTotalCost(calculatedCost);
   };
   

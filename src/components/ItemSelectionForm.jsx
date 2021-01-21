@@ -3,8 +3,6 @@ import { itemPluralName } from '../Constants'
 
 
 const ItemSelectionForm = ({ itemAmount, onSelectItem }) => {
-    // Variables
-
     // Methods
     let onSelectChange = (e) => {
         console.log(e.target.value);

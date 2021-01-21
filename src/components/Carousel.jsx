@@ -1,15 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import logo from '../logo.svg';
+import {mainImageUrl} from '../Constants'
+import PropTypes from 'prop-types';
 
-const Carousel = props => {
+const Carousel = (props) => {
     return (
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={mainImageUrl}
+         className="App-logo" alt="logo" />
     )
 }
 
-Carousel.propTypes = {
-
-}
+Carousel.propTypes = {}
 
 export default Carousel

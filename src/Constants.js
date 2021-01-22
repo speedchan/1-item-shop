@@ -1,5 +1,9 @@
-export const itemAmount = [6, 12, 24];
+export const siteUrl = 'http://localhost:3000/';
+
+export const itemAmount = [6, 12, 24, 1];
 export const itemPrice = 2;
+export const currency = 'SGD';
 export const itemPluralName = 'Bottle(s)';
-export const mainImageUrl = 'https://stripe-camo.global.ssl.fastly.net/e6285b827d34d8a159ca494bc029bc6fc3214fc8/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f666c5f746573745f51377a73677857326761707154434533434151545336667a';
-export const itemIdList = ['price_1IBxHYHv5b1TYNZX0oEZV1j5', 'price_1IBxHYHv5b1TYNZX4uUqdtVG', 'price_1IBxHYHv5b1TYNZXWGKaRe2B']
+export const mainImageUrl = './images/kokchi (1).jpg'
+export const itemIdList = ['price_1ICO75Hv5b1TYNZXOzne92Qg', 'price_1ICO75Hv5b1TYNZXtMoPorv7', 'price_1ICO75Hv5b1TYNZXLKfiakRq', 'price_1ICOBhHv5b1TYNZXM3DbBYyc'];
+export const shippingCost = 5.50;

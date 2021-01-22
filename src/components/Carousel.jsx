@@ -1,11 +1,9 @@
 import React from 'react'
-import {mainImageUrl} from '../Constants'
-import PropTypes from 'prop-types';
+import heroImg from '../images/kokchi1.jpg'
 
 const Carousel = (props) => {
     return (
-        <img src={mainImageUrl}
-         className="App-logo" alt="logo" />
+        <img src={heroImg} alt="Hero" className='hero-img' loading='eager'/>
     )
 }
 

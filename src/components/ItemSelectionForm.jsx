@@ -1,24 +1,33 @@
 import PropTypes from 'prop-types'
-import { itemPluralName } from '../Constants'
+import { itemPluralName, itemPrice, currency, shippingCost } from '../Constants'
+import { React, useState } from 'react';
 
 
 const ItemSelectionForm = ({ itemAmount, onSelectItem }) => {
-    // Methods
+    let [scopedTotalCost, updateScopedTotalCost] = useState(12)
     let onSelectChange = (e) => {
-        console.log(e.target.value);
         onSelectItem(e.target.value)
+        updateScopedTotalCost(e.target.value * itemPrice)
     };
-
-    // HTML
     let dropdownOptions = itemAmount.map((item) => <option value={item} key={item}>{item}</option>);
 
+
+
     return (
-        <form action="">
-            <label htmlFor=""></label>
+        <div>
+            
+            <div>
             <select onChange={onSelectChange}>
                 {dropdownOptions}
-            </select> {itemPluralName}
-        </form>
+            </select> {itemPluralName} - {currency} {scopedTotalCost}
+            </div>
+            <div>
+                Flat shipping - {currency} {shippingCost}
+            </div>
+            <div>
+                Total - {currency} {scopedTotalCost + shippingCost}
+            </div>
+        </div>
     );
 }
 

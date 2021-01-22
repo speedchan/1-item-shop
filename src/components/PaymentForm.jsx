@@ -1,6 +1,6 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import {itemIdList} from '../Constants';
+import {itemIdList, siteUrl} from '../Constants';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_PUBLISHABLE_KEY);
@@ -17,19 +17,22 @@ const PaymentForm = ({ totalAmountDue }) => {
         case 48:
             itemId = itemIdList[2];
             break;
+        case 2:
+            itemId = itemIdList[3];
+            break;
     }
 
 
     let handleClick = async (event) => {
         let stripe = await stripePromise;
-        let { error } = await stripe.redirectToCheckout({
+        let response = await stripe.redirectToCheckout({
             lineItems: [{
                 price: itemId,
                 quantity: 1
             }],
             mode: 'payment',
-            successUrl: 'http://localhost:3000/succeed/',
-            cancelUrl: 'http://localhost:3000/fail/',
+            successUrl: siteUrl + 'success/',
+            cancelUrl: siteUrl + 'failure/',
             shippingAddressCollection: {
                 allowedCountries: ['SG']
             },
@@ -40,10 +43,11 @@ const PaymentForm = ({ totalAmountDue }) => {
     };
 
     return (
+        <div>
         <Elements stripe={stripePromise}>
-            ${totalAmountDue}
-            <button role="link" onClick={handleClick}>Checkout</button>
+            <button role="link" onClick={handleClick}>Proceed to Payment</button>
         </Elements>
+        </div>
     );
 };
 

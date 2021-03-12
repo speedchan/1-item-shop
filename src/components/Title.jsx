@@ -14,9 +14,4 @@ Methyl Salicylate 35.3% */}
     )
 }
 
-// Title.propTypes = {
-
-// }
-
 export default Title
-
